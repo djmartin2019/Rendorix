@@ -98,6 +98,7 @@ resource "aws_cloudfront_function" "signer" {
 
 resource "aws_cloudfront_distribution" "cdn" {
   enabled = true
+  price_class = "PriceClass_100"
 
   origin {
     domain_name = trimsuffix(replace(aws_lambda_function_url.url.function_url, "https://", ""), "/")
